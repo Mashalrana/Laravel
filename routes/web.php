@@ -7,7 +7,7 @@ Route::get('/planeten', function () {
     return $planeten;
 });
 
-Route::get('/planetss', function () {
+Route::get('/planets', function () {
     $planets = [
         [
             'name' => 'Mars',
