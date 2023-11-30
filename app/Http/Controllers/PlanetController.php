@@ -11,6 +11,7 @@ class PlanetController extends Controller
     {
         // Gebruik Eloquent om alle planeten op te halen
         $planets = Planet::all();
+        dd($planets);
         return view('planets.index', ['planets' => $planets]);
     }
 
