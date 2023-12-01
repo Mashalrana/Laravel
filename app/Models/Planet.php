@@ -1,5 +1,7 @@
 <?php
 
+// app/Models/Planet.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,14 +11,15 @@ class Planet extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'description',
-        // Voeg hier andere velden toe die je hebt voor planeten
+        'solar_system_id',
+        // other planet fields
     ];
+
+    public function solarSystem()
+    {
+        return $this->belongsTo(SolarSystem::class);
+    }
 }
