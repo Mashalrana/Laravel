@@ -7,7 +7,7 @@ Route::get('/planeten', function () {
     return $planeten;
 });
 
-<<<<<<< HEAD
+
 // Route::get('/planets', function () {
 //     $planets = [
 //         [
@@ -56,7 +56,7 @@ Route::get('/planeten', function () {
 //     }
 //     return view("planets", ['planet' => $planet]);
 // });
-=======
+
 Route::get('/planets', function () {
     $planets = [
         [
@@ -105,7 +105,6 @@ Route::get('/planets/{name}', function ($name) {
     }
     return view("planets", ['planet' => $planet]);
 });
->>>>>>> fd24093e6042b128f7028b5a421462523ed16839
 
 use App\Http\Controllers\PlanetController;
 
