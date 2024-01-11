@@ -28,7 +28,7 @@ class PlanetController extends Controller
         // Gebruik Eloquent om een planeet op te halen op basis van de naam
         $planetData = Planet::where('name', $planet)->first();
 
-        $planetData = DB::table('planets')->where('name', $planet)->first();
+        //$planetData = DB::table('planets')->where('name', $planet)->first();
 
         if (!$planetData) {
             return redirect('/planets');
