@@ -20,3 +20,10 @@ class PivotController extends Controller
         return response()->json($roles);
     }
 }
+
+foreach ($user->roles as $roles) {
+    echo $roles->pivot->status;
+    echo $roles->pivot->created_at;
+    echo $roles->pivot->updated_at;
+    
+}
