@@ -3,62 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Media;
 
 class MediaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // Methode om alle films op te halen en weer te geven
+    public function films()
     {
-        //
+        $films = Media::where('is_movie', true)->get();
+        return view('films', compact('films'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    // Methode om alle series op te halen en weer te geven
+    public function series()
     {
-        //
+        $series = Media::where('is_movie', false)->get();
+        return view('series', compact('series'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    // Methode om details van een film of serie op te halen en weer te geven
+    public function show($id)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $media = Media::findOrFail($id);
+        return view('media', compact('media'));
     }
 }

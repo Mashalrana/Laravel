@@ -3,62 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Actor;
 
 class ActorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Methode om alle acteurs op te halen en weer te geven
     public function index()
     {
-        //
+        $acteurs = Actor::all();
+        return view('acteurs', compact('acteurs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    // Methode om films of series van een specifieke acteur op te halen en weer te geven
+    public function media($id)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $acteur = Actor::findOrFail($id);
+        $media = $acteur->media;
+        return view('acteur_media', compact('acteur', 'media'));
     }
 }
