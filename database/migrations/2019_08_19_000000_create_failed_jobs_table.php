@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('verhuringen', function (Blueprint $table) {
             $table->id('VerhuurID');
-            $table->string('Verhuurdataum');
-            $table->int('KlantID');
-            $table->int('AutoID');
-            $table-> foreign('KlantiD')->references('KlantID')->on('klanten');
-            $table-> foreign('AutoID')->references('AutoID')->on('Autos');
+            $table->string('Verhuurdatum');
+            $table->unsignedBigInteger('KlantID');
+            $table->unsignedBigInteger('AutoID');
+            $table->foreign('KlantID')->references('KlantID')->on('klanten');
+            $table->foreign('AutoID')->references('AutoID')->on('Autos');
             $table->string('Huurperiode');
-            $table->DECIMAL('Kosten',$precision = 10, $scale = 2);
-     
+            $table->decimal('Kosten', 10, 2);
+            $table->timestamps();
         });
     }
 
